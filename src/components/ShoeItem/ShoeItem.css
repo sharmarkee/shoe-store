@@ -1,0 +1,32 @@
+.ShoeItem {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3vw 15.35vw 5.75vw 5.25vw;
+  padding: 1vmin 0;
+  color: var(--text-light);
+  background-color: var(--white);
+  border-top: .1vmin solid var(--tan-3);
+  font-size: 1.5vw;
+}
+
+.ShoeItem:last-child {
+  border-bottom: .1vmin solid var(--tan-3);
+}
+
+.ShoeItem .qty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.ShoeItem .ext-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.ShoeItem button {
+  margin: 0;
+}

@@ -1,0 +1,24 @@
+.OrderHistoryPage  {
+  height: 100%;
+  background-color: var(--beige) !important;
+  grid-template-rows: 1fr;
+  border-radius: 2vmin;
+}
+
+.OrderHistoryPage:hover {
+  box-shadow: 0 0 1vmin 0.5vmin var(--tan-3);
+}
+
+.OrderHistoryPage aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vmin;
+  background-color: var(--tan-1);
+  border-radius: 2vmin 2vmin 0 0;
+}
+
+.OrderHistoryPage .btn-m {
+  background-color: var(--green) !important;
+}
