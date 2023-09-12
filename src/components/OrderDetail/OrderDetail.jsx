@@ -9,7 +9,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
       ShoeItem={shoe}
       isPaid={order.isPaid}
       handleChangeQty={handleChangeQty}
-      key={item._id}
+      key={shoe._id}
     />
   );
 
@@ -24,9 +24,9 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
         <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
       </div>
       <div className="shoe-item-container flex-ctr-ctr flex-col scroll-y">
-        {lineItems.length ?
+        {shoeItems.length ?
           <>
-            {lineItems}
+            {ShoeItem}
             <section className="total">
               {order.isPaid ?
                 <span className="right">TOTAL&nbsp;&nbsp;</span>

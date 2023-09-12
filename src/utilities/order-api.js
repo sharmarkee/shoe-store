@@ -1,16 +1,16 @@
 import sendRequest from './send-request';
 
-const BASE_URL = '/api/orders';
+const BASE_URL = '/api/order';
 
 export function getCart() {
   const response = sendRequest(`${BASE_URL}/cart`);
   return response
 }
-export function addItemToCart(shoeId) {
-  return sendRequest(`${BASE_URL}/cart/shoess/${shoeId}`, 'POST');
+export function addShoeCart(shoeId) {
+  return sendRequest(`${BASE_URL}/cart/shoes/${shoeId}`, 'POST');
 }
 
-export function setItemQtyInCart(shoeId, newQuantity) {
+export function setShoeQtyInCart(shoeId, newQuantity) {
   return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { shoeId, newQuantity });
 }
 

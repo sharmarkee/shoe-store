@@ -1,28 +1,78 @@
-import * as shoetemsAPI from '../../utilities/items-api';
-// Add the following import
-import * as ordersAPI from '../../utilities/orders-api';
+import { useState, useEffect, useRef } from 'react';
+import * as shoesAPI from "../../utilities/shoes-api"; 
+import * as orderAPI from "../../utilities/order-api";
+import Logo from '../../components/Logo/Logo';
+import './NewOrderPage.css';
+import { Link, useNavigate } from 'react-router-dom';
+import InventoryList from '../../components/InventoryList/InventoryList';
+import BrandList from '../../components/BrandList/BrandList';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
+import LogOut from '../../components/LogOut/LogOut';
 
 
-const [cart, setCart] = useState(null);
-export default function NewOrderPage() {
-  return (
-    <h1> NewOrderPage</h1>
-  )
-}
+
+export default function NewOrderPage({ user, setUser }) {
+  const [inventoryShoes, setInventoryShoes] = useState([]);
+  const [activeCat, setActiveCat] = useState('');
+  const [cart, setCart] = useState(null);
+  const brandsRef = useRef([]);
+  const navigate = useNavigate();
+
 
 useEffect(function() {
-  async function getItems() {
-    const items = await itemsAPI.getAll();
-    categoriesRef.current = [...new Set(items.map(item => item.category.name))];
-    setMenuItems(items);
-    setActiveCat(categoriesRef.current[0]);
+  async function getShoes() {
+    const shoes = await shoesAPI.getAll();
+    brandsRef.current = [...new Set(shoes.map(shoe => shoe.brand.name))];
+    setInventoryShoes(shoes);
+    setActiveCat(brandsRef.current[0]);
   }
-  getItems();
-
-  // Load cart (a cart is the unpaid order for the logged in user)
+  getShoes();
+  
   async function getCart() {
-    const cart = await ordersAPI.getCart();
+    const cart = await orderAPI.getCart();
     setCart(cart);
   }
   getCart();
-});
+}, []);
+
+
+async function handleAddToOrder(shoeId) {
+  const updateCart = await orderAPI.addShoeCart(shoeId);
+  setCart(updateCart);
+}
+
+async function handleChangeQuantity(shoeId, newQty) {
+  const updateCart = await orderAPI.setShoeQtyInCart(shoeId, newQty);
+  setCart(updateCart);
+}
+
+async function handleCheckout() {
+  await orderAPI.checkout();
+  navigate('/order');
+  
+}
+
+return (
+  <main className="NewOrderPage">
+  <aside>
+    <Logo />
+    <BrandList
+      brands={brandsRef.current}
+      activeCat={activeCat}
+      setActiveCat={setActiveCat}
+    />
+    <Link to="/orders" className="button btn-m">PREVIOUS ORDERS</Link>
+    <LogOut user={user} setUser={setUser} />
+  </aside>
+  <InventoryList
+    inventoryItems={inventoryShoes.filter(shoe => shoe.category.name === activeCat)}
+    handleAddToOrder={handleAddToOrder}
+    />
+  <OrderDetail 
+  order={cart}
+  handleChangeQty={handleChangeQuantity}
+  handleCheckout={handleCheckout}
+  />
+</main>
+);
+}
