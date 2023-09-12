@@ -52,7 +52,7 @@ orderSchema.statics.getCart = async function(userId) {
     );
   };
 
-  orderSchema.methods.addShoeToCart = async function(shoeId) {
+  orderSchema.methods.addShoeCart = async function(shoeId) {
     const cart = this;
     const shoeItems = cary.shoeItems.find(sjhoeItem => shoeItem.item._id === shoeId);
 
