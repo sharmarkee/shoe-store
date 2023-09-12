@@ -9,13 +9,7 @@ export default class SignUpForm extends Component {
     confirm: '',
     error: '',
   }
-  handleChange = (evt) => {
-    this.setState({
-      [evt.target.name]: evt.target.value,
-      error: ''
-    });
-  };
-
+  
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try{
@@ -31,6 +25,15 @@ export default class SignUpForm extends Component {
     } 
      //alert(JSON.stringify(this.state));
   }
+  
+  handleChange = (evt) => {
+    this.setState({
+      [evt.target.name]: evt.target.value,
+      error: ''
+    });
+  };
+
+
 
   render() {
     const disable = this.state.password !== this.state.confirm;

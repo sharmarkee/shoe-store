@@ -6,7 +6,7 @@ const Shoe = require('./models/shoes');
 
 (async function() {
   await Brand.deleteMany({});
-  const brands = await Category.create([
+  const brands = await Brand.create([
     {name: 'Air Jordan', sortOrder: 1},
     {name: 'Nike', sortOrder: 2},
     {name: 'Yeezy', sortOrder: 3},

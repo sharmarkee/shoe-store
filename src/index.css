@@ -1,13 +1,13 @@
 /* CSS Custom Properties */
 :root {
-  --white: beige;
+  --white: beige !important;
   --tan-1: #e3af61;
   --tan-2: #d7934f;
   --tan-3: #d58845;
   --tan-4: #D3C1AE;
   --orange: #F67F00;
-  --text-light: #968c84;
-  --text-black: black;
+  --text-light: black !important;
+  --text-black: black !important;
 }
 
 *, *:before, *:after {
@@ -21,7 +21,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--beige);
+  background-color: #82A7A6  !important;
   padding: 2vmin;
   height: 100vh;
 }
@@ -80,13 +80,13 @@ code {
 
 .form-container {
   padding: 3vmin;
-  background-color: var(--tan-1);
+  background-color: beige !important;
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
 }
 
 p.error-message {
-  color: var(--orange);
+  color: red !important;
   text-align: center;
 }
 
@@ -144,7 +144,7 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color:var(--tan-2) !important;
 }
 
 button[type="submit"] {
