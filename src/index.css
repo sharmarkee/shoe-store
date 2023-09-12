@@ -1,13 +1,13 @@
 /* CSS Custom Properties */
 :root {
-  --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
+  --white: beige;
+  --tan-1: #e3af61;
+  --tan-2: #d7934f;
+  --tan-3: #d58845;
   --tan-4: #D3C1AE;
   --orange: #F67F00;
   --text-light: #968c84;
-  --text-dark: #615954;
+  --text-black: black;
 }
 
 *, *:before, *:after {
@@ -21,7 +21,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--beige);
   padding: 2vmin;
   height: 100vh;
 }
@@ -108,7 +108,7 @@ input {
   font-size: 2vmin;
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
-  color: var(--text-dark);
+  color: var(--text-black);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
@@ -132,7 +132,7 @@ button, a.button {
   cursor: pointer;
 }
 
-button.btn-sm {
+button.btn-m {
   font-size: 1.5vmin;
   padding: .6vmin .8vmin;
 }
