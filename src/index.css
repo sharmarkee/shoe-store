@@ -21,7 +21,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #82A7A6  !important;
+  background-color: #82A7A6  ;
   padding: 2vmin;
   height: 100vh;
 }

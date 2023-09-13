@@ -1,4 +1,4 @@
-.MenuListItem {
+.OrderListShoe {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -7,25 +7,23 @@
   padding: 2vmin;
   color: var(--text-light);
   background-color: var(--white);
-  border: .1vmin solid var(--tan-3);
+  border: .2vmin solid var(--tan-3);
   border-radius: 1vmin;
-  font-size: 4vmin;
+  font-size: 2vmin;
+  cursor: pointer;
 }
 
-
-.MenuListItem .buy {
-  display: flex;
-  flex-direction: column;
+.OrderListShoe > div> div:first-child {
+  margin-bottom: .5vmin;
 }
 
-.MenuListItem .buy span {
-  font-size: 1.7vw;
-  text-align: center;
-  color: var(--text-light);
+.OrderListShoe.selected {
+  border-color: var(--orange);
+  border-width: .2vmin;
+  cursor: default;
 }
 
-.MenuListItem .name {
-  font-size: 2vw;
-  text-align: center;
-  color: var(--text-light);
+.OrderListShoe:not(.selected):hover {
+  border-color: var(--orange);
+  border-width: .2vmin;
 }

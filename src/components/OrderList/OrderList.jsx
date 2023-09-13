@@ -1,18 +1,18 @@
-import OrderListShoe from '../OrderListShoe/OrderListShoe';
 import './OrderList.css';
+import OrderListShoe from '../OrderListShoe/OrderListShoe';
 
-export default function OrderList({ orders, selectedOrder, setSelectedOrder }) {
-  const orderListShoes = orders.map(o =>
-    <OrderListShoe
-      order={o}
-      isSelected={o === selectedOrder}
-      setSelectedOrder={setSelectedOrder}
-      key={o._id}
-    />
-  );
+export default function OrderList({ orders, activeOrder, setActiveOrder }) {
+
+  const orderList = orders.map(order => <OrderListShoe
+    order={order}
+    activeOrder={activeOrder}
+    setActiveOrder={setActiveOrder}
+    key={order.id}
+  />);
+
   return (
-    <main className="OrderList">
-      {orderListShoes}
+    <main className={`OrderList ${orders.length ? '' : 'no-orders'}`}>
+      {orderList}
     </main>
   );
 }

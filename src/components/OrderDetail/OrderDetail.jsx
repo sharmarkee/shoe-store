@@ -25,14 +25,14 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
       </div>
       <div className="shoe-item-container flex-ctr-ctr flex-col scroll-y">
         {shoeItems.length ?
-          <>
-            {ShoeItem}
+          <> 
+            {shoeItems}
             <section className="total">
               {order.isPaid ?
                 <span className="right">TOTAL&nbsp;&nbsp;</span>
                 :
                 <button
-                  className="btn-"
+                  className="btn-sm"
                   onClick={handleCheckout}
                   disabled={!shoeItems.length}
                 >CHECKOUT</button>

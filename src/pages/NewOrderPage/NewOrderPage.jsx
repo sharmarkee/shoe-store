@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import * as shoesAPI from "../../utilities/shoes-api"; 
-import * as orderAPI from "../../utilities/order-api";
+import * as ordersAPI from "../../utilities/orders-api";
 import Logo from '../../components/Logo/Logo';
 import './NewOrderPage.css';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,19 +17,22 @@ export default function NewOrderPage({ user, setUser }) {
   const [cart, setCart] = useState(null);
   const brandsRef = useRef([]);
   const navigate = useNavigate();
+  const [activeStripe, setActiveStripe] = useState(false)
 
 
-useEffect(function() {
-  async function getShoes() {
-    const shoes = await shoesAPI.getAll();
-    brandsRef.current = [...new Set(shoes.map(shoe => shoe.brand.name))];
-    setInventoryShoes(shoes);
-    setActiveCat(brandsRef.current[0]);
+  useEffect(function () {
+    async function getShoes() {
+      const shoes = await shoesAPI.getAll()
+      brandsRef.current = [
+        ...new Set(shoes.map((shoe) => shoe.brand.name))
+      ]
+      setInventoryShoes(shoes)
+      setActiveCat(brandsRef.current[0])
   }
   getShoes();
   
   async function getCart() {
-    const cart = await orderAPI.getCart();
+    const cart = await ordersAPI.getCart();
     setCart(cart);
   }
   getCart();
@@ -37,18 +40,25 @@ useEffect(function() {
 
 
 async function handleAddToOrder(shoeId) {
-  const updateCart = await orderAPI.addShoeCart(shoeId);
+  const updateCart = await ordersAPI.addShoeCart(shoeId);
   setCart(updateCart);
 }
 
 async function handleChangeQuantity(shoeId, newQty) {
-  const updateCart = await orderAPI.setShoeQtyInCart(shoeId, newQty);
+  const updateCart = await ordersAPI.setShoeQuantity(shoeId, newQty);
   setCart(updateCart);
 }
 
 async function handleCheckout() {
-  await orderAPI.checkout();
+  await ordersAPI.checkout();
   navigate('/order');
+
+
+async function handleCheckout() {
+    // await ordersAPI.checkout()
+    // navigate('/payment')
+    setActiveStripe(true)
+
   
 }
 
@@ -61,7 +71,7 @@ return (
       activeCat={activeCat}
       setActiveCat={setActiveCat}
     />
-    <Link to="/orders" className="button btn-m">PREVIOUS ORDERS</Link>
+    <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
     <LogOut user={user} setUser={setUser} />
   </aside>
   <InventoryList
@@ -72,7 +82,11 @@ return (
   order={cart}
   handleChangeQty={handleChangeQuantity}
   handleCheckout={handleCheckout}
-  />
-</main>
-);
+  activeStripe={activeStripe}
+  setActiveStripe={setActiveStripe}
+   />
+ </main>
+ );
+
+}
 }

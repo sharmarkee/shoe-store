@@ -1,13 +1,12 @@
-import './InventoryListShoe.css';
+import './InventoryListShoes.css';
 
-export default function InventoryListShoe({ inventoryShoe, handleAddToOrder }) {
+export default function InventoryListShoes({ inventoryShoe, handleAddToOrder }) {
   return (
-    <div className="InventoryListShoe">
-      <img className="image flex-ctr-ctr" src={inventoryShoe.image} alt="" />
+    <div className="InventoryListShoes">
       <div className="name">{inventoryShoe.name}</div>
       <div className="buy">
         <span>${inventoryShoe.price.toFixed(2)}</span>
-        <button className="btn-m" onClick={() => handleAddToOrder(inventoryShoe._id)}>
+        <button className="btn-sm" onClick={() => handleAddToOrder(inventoryShoe._id)}>
           ADD
         </button>
       </div>

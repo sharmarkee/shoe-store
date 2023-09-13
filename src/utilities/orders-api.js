@@ -1,23 +1,24 @@
 import sendRequest from './send-request';
 
-const BASE_URL = '/api/order';
+const BASE_URL = '/api/orders';
 
 export function getCart() {
   const response = sendRequest(`${BASE_URL}/cart`);
+  console.log('orders-api response: ', response)
   return response
 }
 export function addShoeCart(shoeId) {
   return sendRequest(`${BASE_URL}/cart/shoes/${shoeId}`, 'POST');
 }
 
-export function setShoeQtyInCart(shoeId, newQuantity) {
+export function setShoeQuantity(shoeId, newQuantity) {
   return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { shoeId, newQuantity });
 }
 
-export function checkout() {
-  return sendRequest(`${BASE_URL}/cart/checkout`, 'POST');
+export function checkout(payload) {
+  return sendRequest(`${BASE_URL}/cart/checkout`, 'POST', payload);
 }
 
-export function getAllForUser() {
-  return sendRequest(`${BASE_URL}/user`);
+export function getAllForUser() {  
+  return sendRequest(`${BASE_URL}`);
 }

@@ -1,11 +1,12 @@
 import './InventoryList.css';
+import InventoryListShoes from '../InventoryListShoes/InventoryListShoes';
 
 
 export default function InventoryList({ inventoryShoes, handleAddToOrder }) {
-  const shoes = inventoryShoes.map(shoes =>
-    <InventoryList
-      key={shoes._id}
-      inventoryShoes={shoes}
+  const shoes = inventoryShoes.map(shoe =>
+    <InventoryListShoes
+      key={shoe._id}
+      inventoryShoe={shoe}
       handleAddToOrder={handleAddToOrder}
     />
   );

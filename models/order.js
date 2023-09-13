@@ -3,18 +3,17 @@ const Schema = mongoose.Schema;
 const shoeSchema = require('./shoeSchema');
 
 
-module.exports = mongoose.model('Order', orderSchema);
 
-const shoeSchema = new Schema({
+
+const shoeItemSchema = new Schema({
   qty: { type: Number, default: 1 },
-  item: shoeSchema
+  shoe: shoeSchema
 }, {
-  timestamps: true,
-  toJSON: {virtuals: true}
+  toJSON: { virtuals: true }
 });
 
-shoeSchema.virtual('extPrice').get(function() {
-  return this.qty * this.item.price;
+shoeItemSchema.virtual('extPrice').get(function() {
+  return this.qty * this.shoe.price;
 });
 
 const orderSchema = new Schema({
@@ -33,11 +32,11 @@ const orderSchema = new Schema({
 });
 
 orderSchema.virtual('orderTotal').get(function () {
-  return this.lineItems.reduce((total, item) => total + item.extPrice, 0);
+  return this.shoeItems.reduce((total, shoe) => total + shoe.extPrice, 0);
 });
 
 orderSchema.virtual('totalQty').get(function () {
-  return this.lineItems.reduce((total, item) => total + item.qty, 0);
+  return this.shoeItems.reduce((total, shoe) => total + shoe.qty, 0);
 });
 
 orderSchema.virtual('orderId').get(function () {
@@ -54,26 +53,26 @@ orderSchema.statics.getCart = async function(userId) {
 
   orderSchema.methods.addShoeCart = async function(shoeId) {
     const cart = this;
-    const shoeItems = cary.shoeItems.find(sjhoeItem => shoeItem.item._id === shoeId);
+    const shoeItem = cary.shoeItems.find(shoeItem => shoeItem.item._id === shoeId);
 
     if (shoeItem) {
-      shoeItems.qty += 1;
+      shoeItem.qty += 1;
     } else {
       const Shoe = mongoose.model('Shoe');
-      const shoe = await Shoe.findyBYID(shoeId);
-      cart.shoeItems.push({item: shoe}); 
+      const shoe = await Shoe.findyById(shoeId);
+      cart.shoeItems.push({ shoe}); 
     }
     return cart.save();
   };
 
-  orderSchema.methods.setShoeQuantity = async function(shoeId, newQuantity) {
+  orderSchema.methods.setShoeQuantity = async function(shoeId, newQty) {
     cart = this;
-    const shoeItems = cart.shoeItems.find(shoeItems => shoeItems.shoe._id === shoeId);
+    const shoeItem = cart.shoeItems.find(shoeItems => shoeItems.shoe._id === shoeId);
 
     if (shoeItem && newQuantity <= 0) {
       await cart.removeShoe(shoeId);
     } else if (shoeItem) {
-      shoeItem.quantity = newQuantity;
+      shoeItem.quantity = newQty;
     }
     return cart.save();
   };
