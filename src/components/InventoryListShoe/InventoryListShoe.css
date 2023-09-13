@@ -14,7 +14,7 @@
   font-size: 4vmin;
 }
 
-.InventoryListShoes .image {
+.InventoryListShoe .image {
   height: 8vw;
   width: 8vw;
   font-size: 4vw;
@@ -23,18 +23,18 @@
   border-radius: 1vmin;
 }
 
-.InventoryListShoes .buy {
+.InventoryListShoe .buy {
   display: flex;
   flex-direction: column;
 }
 
-.InventoryListShoes .buy span {
+.InventoryListShoe .buy span {
   font-size: 1.7vw;
   text-align: center;
   color: var(--text-light);
 }
 
-.InventoryListShoes .name {
+.InventoryListShoe .name {
   font-size: 2vw;
   text-align: center;
   color: var(--text-light);

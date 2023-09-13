@@ -2,7 +2,7 @@ require('dotenv').config();
 require('./config/database');
 
 const Brand = require('./models/brand');
-const Shoe = require('./models/shoes');
+const Shoe = require('./models/shoe');
 
 (async function() {
   await Brand.deleteMany({});
@@ -16,7 +16,7 @@ const Shoe = require('./models/shoes');
 
 
 
-  await Shoe.deleteMany({});
+  //await Shoe.deleteMany({});
   const shoes = await Shoe.create([ 
   { 
   name: 'Air Jordan 1', brand: brands[1],price: 200, size: 14,image: 'https://imgur.com/a/7YR29ah' },
@@ -27,7 +27,7 @@ name: 'Air Jordan 4',brand: brands[1],price: 220,size: 12,image: 'https://imgur.
 {
 name: 'Air Jordan 11',brand: brands[1],price: 220,size: 9,image: 'https://imgur.com/a/PIYv9sJ' },
 {
-name: 'Nike Air Max 1', brand : brands[3], price: 140,  size: 10,image: 'https://imgur.com/a/VBjPL0B' },
+name: 'Nike Air Max 1', brand : brands[2], price: 140,  size: 10,image: 'https://imgur.com/a/VBjPL0B' },
 {
 name: 'Adidas Pro',brand : brands[4],price: 100, size: 11,image: 'https://imgur.com/a/ZOzWlSQ' },
 
