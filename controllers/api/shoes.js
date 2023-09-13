@@ -7,6 +7,7 @@ module.exports = {
 
 async function index(req, res) {
   const shoes = await Shoe.find({}).sort('name').populate('brand').exec();
+  shoess.sort((a, b) => a.brand.sortOrder - b.brand.sortOrder);
   res.json(shoes);
 }
 

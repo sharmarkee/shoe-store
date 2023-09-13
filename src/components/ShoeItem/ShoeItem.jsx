@@ -4,6 +4,7 @@ export default function LineItem({ shoeItem, isPaid, handleChangeQty }) {
   return (
     <div className="ShoeItem">
       <div className="flex-ctr-ctr flex-col">
+      <img src={shoeItem.shoe.imgUrl} alt={shoeItem.shoe.name} />
         <span className="align-ctr">{shoeItem.shoe.name}</span>
         <span>{shoeItem.shoe.price.toFixed(2)}</span>
       </div>

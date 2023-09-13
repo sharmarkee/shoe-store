@@ -3,6 +3,12 @@ const jwt = require('jsonwebtoken');
 const bcrypt =  require('bcrypt');
 
 
+module.exports = {
+  create,
+  login,
+  
+  
+};
 
 async function create(req, res) {
   try {
@@ -38,10 +44,5 @@ function createJWT(user) {
   
 }
 
-module.exports = {
-  create,
-  login,
-  
-  
-};
+
 

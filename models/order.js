@@ -53,7 +53,7 @@ orderSchema.statics.getCart = async function(userId) {
 
   orderSchema.methods.addShoeCart = async function(shoeId) {
     const cart = this;
-    const shoeItem = cary.shoeItems.find(shoeItem => shoeItem.item._id === shoeId);
+    const shoeItem = cart.shoeItems.find(shoeItem => shoeItem.item._id === shoeId);
 
     if (shoeItem) {
       shoeItem.qty += 1;
@@ -72,7 +72,7 @@ orderSchema.statics.getCart = async function(userId) {
     if (shoeItem && newQuantity <= 0) {
       await cart.removeShoe(shoeId);
     } else if (shoeItem) {
-      shoeItem.quantity = newQty;
+      shoeItem.quantity = newQuantity;
     }
     return cart.save();
   };
