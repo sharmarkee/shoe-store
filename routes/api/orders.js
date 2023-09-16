@@ -6,6 +6,6 @@ router.get('/cart', ordersCtrl.cart);
 router.get('/', ordersCtrl.getAllForUser);
 router.post('/cart/shoes/:id', ordersCtrl.addCart);
 router.post('/cart/checkout', ordersCtrl.checkout);
-router.put('/cart/quantity', ordersCtrl.setShoeQuantity);
+router.put('/cart/shoes/:id', ordersCtrl.setShoeQuantity);
 
 module.exports = router;

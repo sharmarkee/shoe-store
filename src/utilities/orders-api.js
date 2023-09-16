@@ -7,12 +7,12 @@ export function getCart() {
   console.log('orders-api response: ', response)
   return response
 }
-export function addShoeCart(shoeId) {
+export function addCart(shoeId) {
   return sendRequest(`${BASE_URL}/cart/shoes/${shoeId}`, 'POST');
 }
 
 export function setShoeQuantity(shoeId, newQuantity) {
-  return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { shoeId, newQuantity });
+  return sendRequest(`${BASE_URL}/cart/shoes/${shoeId}`, 'PUT', { shoeId, newQuantity });
 }
 
 export function checkout(payload) {

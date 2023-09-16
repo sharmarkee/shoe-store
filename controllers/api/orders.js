@@ -23,8 +23,11 @@ async function getAllForUser(req, res) {
 async function cart(req, res) {
   const cart = await Order.getCart(req.user._id)
   res.json(cart)
+
+  console.log(req.body);
 }
 
+   
 async function addCart(req, res) {
   const cart = await Order.getCart(req.user._id);
   await cart.addShoeCart(req.params.id);

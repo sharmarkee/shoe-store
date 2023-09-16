@@ -31,16 +31,16 @@ export default function NewOrderPage({ user, setUser }) {
   }
   getShoes();
   
-  // async function getCart() {
-  //   const cart = await ordersAPI.getCart();
-  //   setCart(cart);
-  // }
-  // getCart();
+  async function getCart() {
+    const cart = await ordersAPI.getCart();
+    setCart(cart);
+    console.log(cart)
+  getCart();
 }, []);
 
 
 async function handleAddToOrder(shoeId) {
-  const updateCart = await ordersAPI.addShoeCart(shoeId);
+  const updateCart = await ordersAPI.addCart(shoeId);
   setCart(updateCart);
 }
 
