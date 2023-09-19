@@ -6,7 +6,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
 
   const shoeItems = order.shoeItems.map(shoe =>
     <ShoeItem
-      ShoeItem={shoe}
+      shoeItem={shoe}
       isPaid={order.isPaid}
       handleChangeQty={handleChangeQty}
       key={shoe._id}

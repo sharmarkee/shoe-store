@@ -1,10 +1,10 @@
 import './ShoeItem.css';
 
-export default function LineItem({ shoeItem, isPaid, handleChangeQty }) {
+export default function ShoeItem({ shoeItem, isPaid, handleChangeQty }) {
   return (
     <div className="ShoeItem">
-      <div className="flex-ctr-ctr flex-col">
-      <img src={shoeItem.shoe.imgUrl} alt={shoeItem.shoe.name} />
+      <div className=" flex-ctr-ctr flex-col" >
+      <img className="image" src={shoeItem.shoe.image} alt={shoeItem.shoe.name} />
         <span className="align-ctr">{shoeItem.shoe.name}</span>
         <span>{shoeItem.shoe.price.toFixed(2)}</span>
       </div>

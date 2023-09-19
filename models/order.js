@@ -9,6 +9,7 @@ const shoeItemSchema = new Schema({
   qty: { type: Number, default: 1 },
   shoe: shoeSchema
 }, {
+  timestamps: true,
   toJSON: { virtuals: true }
 });
 
@@ -22,7 +23,7 @@ const orderSchema = new Schema({
     ref: 'User', 
     required: true },
   
-    shoeItems: [shoeSchema],
+    shoeItems: [shoeItemSchema],
 
   isPaid: { type: Boolean, default: false },
 }, {
@@ -59,13 +60,13 @@ orderSchema.statics.getCart = async function(userId) {
       shoeItem.qty += 1;
     } else {
       const Shoe = mongoose.model('Shoe');
-      const shoe = await Shoe.findyById(shoeId);
+      const shoe = await Shoe.findById(shoeId);
       cart.shoeItems.push({ shoe}); 
     }
     return cart.save();
   };
 
-  orderSchema.methods.setShoeQuantity = async function(shoeId, newQty) {
+  orderSchema.methods.setShoeQuantity = async function(shoeId, newQuantity) {
     cart = this;
     const shoeItem = cart.shoeItems.find(shoeItems => shoeItems.shoe._id === shoeId);
 

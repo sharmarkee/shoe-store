@@ -22,7 +22,7 @@ export default function NewOrderPage({ user, setUser }) {
   useEffect(function () {
     async function getShoes() {
       const shoes = await shoesAPI.getAll()
-      console.log(shoes)
+      // console.log(shoes)
       brandsRef.current = [
         ...new Set(shoes?.map((shoe) => shoe.brand.name))
       ]
@@ -40,12 +40,13 @@ export default function NewOrderPage({ user, setUser }) {
 }, []);
 
 
-async function handleAddToOrder(shoeId) {
+async function handleAddToOrder(shoeId){
   const updateCart = await ordersAPI.addCart(shoeId);
   setCart(updateCart);
+  // console.log(updateCart);
 }
 
-async function handleChangeQuantity(shoeId, newQty) {
+async function handleChangeQty(shoeId, newQty) {
   const updateCart = await ordersAPI.setShoeQuantity(shoeId, newQty);
   setCart(updateCart);
 }
@@ -77,7 +78,7 @@ return (
     />
   <OrderDetail 
   order={cart}
-  handleChangeQuantity={handleChangeQuantity}
+  handleChangeQty={handleChangeQty}
   handleCheckout={handleCheckout}
   activeStripe={activeStripe}
   setActiveStripe={setActiveStripe}

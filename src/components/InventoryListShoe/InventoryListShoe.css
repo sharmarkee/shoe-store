@@ -15,8 +15,8 @@
 }
 
 .InventoryListShoe .image  {
-  max-height: 12vw;
-  width: 12vw ;
+  max-height: 14vw;
+  width: 14vw ;
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
 }
