@@ -4,7 +4,7 @@ Shoe-Store
 
 Background Information:
  
-An E-Commerce Shoe-Store where users can purchase authentic shoes from thier favorite shoe brands with a click of a button.
+An E-Commerce Shoe-Store where users can purchase authentic shoes from thier favorite shoe brands with a click of a button. With the way society has moved forward in online shopping, you'll never have to wait long lines, enter raffles, or have the inconvenience of going into a shopping mall to purchase Shoes.
 
 -------------------------------------------------
 
