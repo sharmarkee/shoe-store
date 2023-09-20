@@ -10,9 +10,9 @@ An E-Commerce Shoe-Store where users can purchase authentic shoes from thier fav
 
 Getting Started:
 
-Trello Board: https://trello.com/b/XdTiURjO/shoe-e-commerce-store
+[Click to view Project Planning!​](https://trello.com/b/XdTiURjO/shoe-e-commerce-store)
+Trello Board
 
-Heroku Deployment: 
 
 
 ------------------------------------------------
