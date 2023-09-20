@@ -54,7 +54,7 @@ orderSchema.statics.getCart = async function(userId) {
 
   orderSchema.methods.addShoeCart = async function(shoeId) {
     const cart = this;
-    const shoeItem = cart.shoeItems.find(shoeItem => shoeItem.shoe._id === shoeId);
+    const shoeItem = cart.shoeItems.find(shoeItem => shoeItem.shoe._id.equals(shoeId));
 
     if (shoeItem) {
       shoeItem.qty += 1;
@@ -66,14 +66,16 @@ orderSchema.statics.getCart = async function(userId) {
     return cart.save();
   };
 
-  orderSchema.methods.setShoeQuantity = async function(shoeId, newQuantity) {
+  orderSchema.methods.setShoeQuantity = async function(shoeId, newQty) {
     cart = this;
-    const shoeItem = cart.shoeItems.find(shoeItem => shoeItem.shoe._id === shoeId);
+    const shoeItem = cart.shoeItems.find(shoeItem => shoeItem.shoe._id.equals(shoeId));
+    console.log(shoeItem);
 
-    if (shoeItem && newQuantity <= 0) {
-      await cart.deleteOne(shoeId);
+    if (shoeItem && newQty <= 0) {
+      await shoeItem.deleteOne(shoeId);
     } else if (shoeItem) {
-      shoeItem.qty = newQuantity;
+      shoeItem.qty = newQty;
+      console.log(shoeItem);
     }
     return cart.save();
   };

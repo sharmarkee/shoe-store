@@ -49,6 +49,7 @@ async function handleAddToOrder(shoeId){
 async function handleChangeQty(shoeId, newQty) {
   const updateCart = await ordersAPI.setShoeQuantity(shoeId, newQty);
   setCart(updateCart);
+  console.log(updateCart);
 }
 
 

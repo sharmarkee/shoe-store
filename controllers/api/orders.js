@@ -38,6 +38,7 @@ async function setShoeQuantity(req, res) {
   const cart = await Order.getCart(req.user._id);
   await cart.setShoeQuantity(req.body.shoeId, req.body.newQty);
   res.json(cart);
+  // console.log('newQty: ', cart)
 }
 
 async function checkout(req, res) {

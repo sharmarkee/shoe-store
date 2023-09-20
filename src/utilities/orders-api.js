@@ -11,8 +11,8 @@ export function addCart(shoeId) {
   return sendRequest(`${BASE_URL}/cart/shoes/${shoeId}`, 'POST');
 }
 
-export function setShoeQuantity(shoeId, newQuantity) {
-  return sendRequest(`${BASE_URL}/cart/shoes/${shoeId}`, 'PUT', { shoeId, newQuantity });
+export function setShoeQuantity(shoeId, newQty) {
+  return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { shoeId, newQty });
 }
 
 export function checkout(payload) {
