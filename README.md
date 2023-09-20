@@ -14,6 +14,9 @@ Getting Started:
 
 
 
+[Click to view Shoe-Store!](https://the-shoe-store-ac51bb2df4d4.herokuapp.com/)
+
+
 
 ------------------------------------------------
 
