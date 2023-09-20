@@ -18,22 +18,26 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.3vw;
+  margin: 0;
+  border-radius: 5%;
 }
 
 .ShoeItem .ext-price {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: right;
   font-size: 1.3vw;
 }
 
-.ShoeItem button {
-  margin: 0;
+.ShoeItem button .btn-sm{
+  align-items: right;
+  display: flex;
 }
 
 .ShoeItem .image {
-  max-height: 14vw;
-  width: 14vw ;
+  height: 8vw;
+  width: 8vw ;
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
+  align-items: left;
 }
