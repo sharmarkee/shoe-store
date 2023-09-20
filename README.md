@@ -18,23 +18,23 @@ Heroku Deployment:
 ------------------------------------------------
 
 Screenshots:
-https://imgur.com/BS5PfkD
-https://imgur.com/aVYY9nS
-https://imgur.com/TlBMEaQ
-https://imgur.com/h2Mbbqf
-https://imgur.com/DEnki4q
+<img src= 'https://imgur.com/BS5PfkD'>
+<img src='https://imgur.com/aVYY9nS'>
+<img src='https://imgur.com/TlBMEaQ'>
+<img src='https://imgur.com/h2Mbbqf'>
+<img src='https://imgur.com/DEnki4q'>
 
 
 
 --------------------------------
 Technologies Used:
- HTML
- CSS
- React
- Heroku
- MongoDB
- Javascript
- Materialize framework
+ - HTML
+ - CSS
+ - React
+ - Heroku
+ - MongoDB
+ - Javascript
+ - Materialize framework
 
 -------------------------------------------------
 
