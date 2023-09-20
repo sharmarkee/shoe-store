@@ -4,7 +4,7 @@ Shoe-Store
 
 Background Information:
  
-an E-Commerce Shoe-Store where users can purchase authentic shoes from thier favorite shoe brands with a click of a button.
+An E-Commerce Shoe-Store where users can purchase authentic shoes from thier favorite shoe brands with a click of a button.
 
 -------------------------------------------------
 
@@ -18,7 +18,11 @@ Heroku Deployment:
 ------------------------------------------------
 
 Screenshots:git 
-
+https://imgur.com/BS5PfkD
+https://imgur.com/aVYY9nS
+https://imgur.com/TlBMEaQ
+https://imgur.com/h2Mbbqf
+https://imgur.com/DEnki4q
 
 
 
