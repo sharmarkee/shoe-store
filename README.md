@@ -17,7 +17,7 @@ Heroku Deployment:
 
 ------------------------------------------------
 
-Screenshots:git 
+Screenshots:
 https://imgur.com/BS5PfkD
 https://imgur.com/aVYY9nS
 https://imgur.com/TlBMEaQ
