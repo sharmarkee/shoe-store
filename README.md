@@ -18,11 +18,11 @@ Heroku Deployment:
 ------------------------------------------------
 
 Screenshots:
-<img src= 'https://imgur.com/BS5PfkD'>
-<img src='https://imgur.com/aVYY9nS'>
-<img src='https://imgur.com/TlBMEaQ'>
-<img src='https://imgur.com/h2Mbbqf'>
-<img src='https://imgur.com/DEnki4q'>
+<img src= "https://i.imgur.com/VFp7UtL.png">
+<img src="https://i.imgur.com/eRuYqep.png">
+<img src="https://i.imgur.com/YKpbr3p.png">
+<img src="https://i.imgur.com/gEVaYRp.png">
+<img src="https://i.imgur.com/GsGX3PG.png">
 
 
 
